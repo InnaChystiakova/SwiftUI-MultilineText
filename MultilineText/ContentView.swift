@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @State private var sliderValue = 300.0
     
     var body: some View {
@@ -32,17 +33,16 @@ struct ContainerView: View {
     
     var body: some View {
         VStack {
-            Text("\(Text("Марафон ").pinnedText(.gray))\(Text ("по"))\(Text(" SwiftUI \n"))\(Text("«Отцовский пинок»").bigText(.blue))")
-            .background()
+            Group {
+                Text("Марафон ").foregroundStyle(.gray)
+                + Text("по ")
+                + Text("SwiftUI ")
+                + Text("«Отцовский пинок»").bigText(.blue)
+            }
+            .background(.clear)
             .frame(width: currentWidth, height: 200)
             .border(Color.red)
         }
-    }
-}
-
-extension Text {
-    func pinnedText(_ color: Color) -> Text {
-        self.foregroundStyle(color)
     }
 }
 
